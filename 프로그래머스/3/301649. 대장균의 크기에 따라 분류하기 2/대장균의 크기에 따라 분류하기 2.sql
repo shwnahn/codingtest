@@ -12,4 +12,4 @@ FROM (
         CEIL(ROW_NUMBER() OVER (ORDER BY SIZE_OF_COLONY DESC) / (COUNT(*) OVER () / 4.0)) AS group_rank
     FROM ECOLI_DATA
 ) As Ranked_Data
-ORDER BY ID
+ORDER BY ID ASC;
