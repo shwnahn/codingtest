@@ -4,8 +4,8 @@ class Solution {
     public int solution(int alp, int cop, int[][] problems) {
         ArrayList<int[]> probList = new ArrayList<>();
         probList.addAll(Arrays.asList(problems));
-        int maxAlpReq = alp;
-        int maxCopReq = cop;
+        int maxAlpReq = 0;
+        int maxCopReq = 0;
         for (int[] problem : problems) {
             if (problem[0] >= maxAlpReq) maxAlpReq = problem[0];
             if (problem[1] >= maxCopReq) maxCopReq = problem[1];
@@ -16,6 +16,8 @@ class Solution {
         if (alp >= maxAlpReq && cop >= maxCopReq) {
             return 0;
         }
+        if (alp >= maxAlpReq) alp = maxAlpReq;
+        if (cop >= maxCopReq) cop = maxCopReq;
 
         probList.add(new int[]{0, 0, 1, 0, 1}); // 알고리즘 공부
         probList.add(new int[]{0, 0, 0, 1, 1}); // 코딩 공부
